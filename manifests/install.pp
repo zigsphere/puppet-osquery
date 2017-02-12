@@ -27,6 +27,8 @@ class osquery::install {
         }
 
       }
+      'Debian': {
+      }
       default: {
         fail("${::operatingsystem} not supported")
       }
