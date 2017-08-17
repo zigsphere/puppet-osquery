@@ -25,10 +25,15 @@ class osquery::params {
   $config       = '/etc/osquery/osquery.conf'
   $repo_install = true
 
+
   case $::operatingsystem {
-    'RedHat', 'CentOS', 'Amazon', 'Scientific', 'OracleLinux', 'OEL': {
+    'RedHat', 'CentOS', 'Scientific', 'OracleLinux', 'OEL': {
       $repo_name = "osquery-s3-centos${::operatingsystemmajrelease}-repo"
       $repo_url  = "https://osquery-packages.s3.amazonaws.com/centos${::operatingsystemmajrelease}/noarch/osquery-s3-centos${::operatingsystemmajrelease}-repo-1-0.0.noarch.rpm"
+    }
+    'Amazon': {
+      $repo_name = "osquery-s3-centos${::operatingsystemmajrelease}-repo"
+      $repo_url  = 'https://osquery-packages.s3.amazonaws.com/centos6/noarch/osquery-s3-centos6-repo-1-0.0.noarch.rpm'
     }
     'ubuntu': {
       # $lsbdistcodename fact example: 'trusty'
