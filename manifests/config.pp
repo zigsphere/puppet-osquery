@@ -2,7 +2,7 @@
 class osquery::config (
   $format = 'pretty'
 ){
-  include '::stdlib'
+  include ::stdlib
 
   file { $::osquery::config:
     ensure  => present,
